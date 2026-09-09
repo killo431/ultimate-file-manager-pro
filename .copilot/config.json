@@ -1,0 +1,237 @@
+{
+  "name": "ultimate-file-manager-pro",
+  "description": "GitHub Copilot configuration for Ultimate File Manager Pro — a dual-pane file manager for Android Mobile, Android TV, and Windows PC",
+  "version": "1.0.0",
+  
+  "project": {
+    "title": "Ultimate File Manager Pro (UFM)",
+    "repository": "https://github.com/killo431/ultimate-file-manager-pro",
+    "license": "GPL-3.0",
+    "platforms": ["Android Mobile", "Android TV", "Windows Desktop"],
+    "primaryLanguages": ["Kotlin", "Rust", "TypeScript", "React"]
+  },
+
+  "architecture": {
+    "components": [
+      {
+        "name": "Android App",
+        "language": "Kotlin",
+        "framework": "Android SDK",
+        "path": "app/src",
+        "description": "Core dual-pane file manager for mobile and TV",
+        "keyFeatures": [
+          "Dual-pane file browsing",
+          "Cloud storage backends (SMB, SFTP, FTP, WebDAV, S3)",
+          "APK sideloading",
+          "D-pad navigation for TV",
+          "17-language localization"
+        ]
+      },
+      {
+        "name": "Windows Companion",
+        "language": "Rust + TypeScript/React",
+        "framework": "Tauri 2",
+        "path": "UFM-Windows",
+        "description": "Desktop companion for PC-to-Android sync and sideloading",
+        "keyFeatures": [
+          "Zero-Conf LAN discovery",
+          "TLS 1.2/1.3 secure communication",
+          "Large file transfer engine (2GB+)",
+          "Glassmorphic UI design",
+          "Self-healing auth & re-pairing"
+        ]
+      }
+    ]
+  },
+
+  "skills": {
+    "required": [
+      {
+        "name": "Android Development",
+        "level": "intermediate",
+        "tools": ["Android Studio", "Gradle", "Kotlin"],
+        "concepts": ["Dual-pane UI patterns", "Coroutines", "Cloud storage APIs"],
+        "resources": ["README.md"]
+      },
+      {
+        "name": "Windows Desktop Development",
+        "level": "intermediate",
+        "tools": ["Rust", "Node.js", "Tauri", "React"],
+        "concepts": ["TLS/SSL", "UDP discovery", "Binary file transfers"],
+        "resources": ["UFM-Windows/README.md"]
+      },
+      {
+        "name": "Cross-Platform Testing",
+        "level": "advanced",
+        "tools": ["Android Emulator", "TV Emulator", "Windows 10+"],
+        "concepts": ["D-pad navigation", "Performance profiling", "Localization"],
+        "resources": ["Testing requirements in guidelines"]
+      }
+    ],
+    "optional": [
+      {
+        "name": "Security Hardening",
+        "concepts": ["TLS certificate pinning", "Path sanitization", "CSP policies"]
+      },
+      {
+        "name": "Performance Optimization",
+        "concepts": ["Memory profiling", "File I/O optimization", "UI rendering"]
+      },
+      {
+        "name": "Internationalization",
+        "concepts": ["RTL language support", "UTF-8 encoding", "Culture-specific formatting"]
+      }
+    ]
+  },
+
+  "agents": {
+    "recommended": [
+      {
+        "name": "Android Code Agent",
+        "purpose": "Implementing Kotlin features, bug fixes, and Android-specific functionality",
+        "capabilities": [
+          "Read Kotlin/Android source code",
+          "Build debug APKs",
+          "Understand D-pad navigation patterns",
+          "Test on mobile and TV platforms"
+        ],
+        "constraints": [
+          "Must test on both Android Mobile (FOSS) and TV (FOSS) variants",
+          "Must verify D-pad navigation works for TV builds",
+          "Must run full test suite before submitting"
+        ]
+      },
+      {
+        "name": "Rust/React Desktop Agent",
+        "purpose": "Implementing Windows Companion features and Tauri/React changes",
+        "capabilities": [
+          "Understand Tauri IPC architecture",
+          "Write Rust command handlers",
+          "Implement React components with TypeScript",
+          "Handle TLS and networking code"
+        ],
+        "constraints": [
+          "Must test on Windows 10+",
+          "Must verify TLS certificate handling",
+          "Must test large file transfers",
+          "Must maintain CSP and security policies"
+        ]
+      },
+      {
+        "name": "Cross-Platform Integration Agent",
+        "purpose": "Features spanning both Android and Windows, localization, shared utilities",
+        "capabilities": [
+          "Understand dual-pane patterns",
+          "Implement localization and translations",
+          "Design cross-platform protocols",
+          "Test end-to-end scenarios"
+        ],
+        "constraints": [
+          "Must test changes on both Android and Windows",
+          "Must verify protocol compatibility",
+          "Must check localization for RTL languages"
+        ]
+      }
+    ],
+    "workflow": {
+      "phase1": "Investigation → Search existing issues/PRs, reproduce problem locally",
+      "phase2": "Implementation → Write tests, code fix, run test suite, create diff",
+      "phase3": "Submission → Complete PR template, identify authorship, submit with evidence",
+      "phase4": "Iteration → Respond to feedback, update as requested, finalize"
+    }
+  },
+
+  "pr_requirements": {
+    "template_sections": [
+      "Problem Statement (specific, reproducible issue)",
+      "Reproduction Steps (APK version, device, steps)",
+      "Proposed Fix (technical approach, design decisions)",
+      "Testing Strategy (how to verify the fix)",
+      "Component Affected (Android/Windows/Both)",
+      "Screenshots/Videos (especially for UI changes)",
+      "AI Disclosure (model, version, environment, plugins)"
+    ],
+    "branch_rules": {
+      "target": "main",
+      "naming": "fix/description or feat/description",
+      "no_merge_commits": false
+    },
+    "testing_requirements": {
+      "android": [
+        "Build debug APK (Mobile and TV variants)",
+        "Test file operations on device",
+        "Verify cloud storage backends (if applicable)",
+        "Check D-pad navigation (TV only)",
+        "Test at least 2 locales"
+      ],
+      "windows": [
+        "Build and run dev server",
+        "Test LAN discovery on multi-NIC system",
+        "Verify TLS certificate handling",
+        "Test large file transfers (2GB+)",
+        "Verify CSP and security policies"
+      ]
+    }
+  },
+
+  "what_we_accept": [
+    "✅ Genuine bug fixes with reproduction steps and failing tests",
+    "✅ Performance improvements with before/after metrics",
+    "✅ Feature additions aligned with project vision",
+    "✅ Documentation improvements and better examples",
+    "✅ Transparent agent contributions with full disclosure",
+    "✅ Plugin/extension work for domain-specific features"
+  ],
+
+  "what_we_reject": [
+    "❌ Low-quality, unfocused, or 'slop' PRs",
+    "❌ Hidden AI authorship (no disclosure of model/environment)",
+    "❌ Duplicate efforts without explanation of differences",
+    "❌ Unreviewed diffs (submitted without human approval)",
+    "❌ Incomplete PR templates or placeholder text",
+    "❌ Vague claims without metrics or evidence",
+    "❌ New third-party dependencies without discussion",
+    "❌ Breaking changes without backward compatibility plan",
+    "❌ TV/Mobile untested features for cross-platform work"
+  ],
+
+  "quality_standards": {
+    "performance": "Smooth scrolling, fast file operations, low memory usage",
+    "security": "No trackers, no telemetry, local-first architecture, TLS encryption",
+    "cross_platform": "Consistent experience on mobile, TV, and desktop",
+    "reliability": "Handles edge cases (large files, slow networks, device sleep)",
+    "maintainability": "Clear code, good documentation, minimal technical debt"
+  },
+
+  "key_principles": [
+    "Agents serve humans — help your human partner succeed",
+    "Quality over speed — one excellent PR beats five rejected ones",
+    "Transparency builds trust — disclose authorship completely",
+    "Test everything — especially cross-platform features",
+    "Search first — duplicate work is the #1 cause of rejection",
+    "Read the docs — component READMEs explain architecture",
+    "Respect the bar — match the project's high quality standards"
+  ],
+
+  "resources": {
+    "documentation": {
+      "main_readme": "README.md",
+      "windows_guide": "UFM-Windows/README.md",
+      "license": "LICENSE",
+      "copilot_guidelines": ".copilot/instructions.md"
+    },
+    "community": {
+      "github_sponsors": "https://github.com/sponsors/Kilowatch",
+      "xda_forum": "https://xdaforums.com/t/app-free-ultimate-file-manager-pro-dual-pane-android-mobile-android-tv-foss-edition-available.4791958/",
+      "reddit": "https://www.reddit.com/r/UFManagerPro/",
+      "issues": "https://github.com/killo431/ultimate-file-manager-pro/issues"
+    }
+  },
+
+  "metadata": {
+    "created": "2026-09-09",
+    "updated": "2026-09-09",
+    "copilot_version": "1.0+",
+    "maintainer": "killo431"
+  }
+}
