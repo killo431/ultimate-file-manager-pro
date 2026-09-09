@@ -1,0 +1,337 @@
+
+=== DIRECTORY TREE (max depth 3, source files only) ===
+.github
+.github/FUNDING.yml
+.github/skills
+.github/skills/acquire-codebase-knowledge
+.github/skills/acquire-codebase-knowledge/SKILL.md
+.github/skills/acquire-codebase-knowledge/assets
+.github/skills/acquire-codebase-knowledge/references
+.github/skills/acquire-codebase-knowledge/scripts
+.gitignore
+.idea
+.idea/.gitignore
+.idea/.name
+.idea/AndroidProjectSystem.xml
+.idea/codeStyles
+.idea/codeStyles/Project.xml
+.idea/codeStyles/codeStyleConfig.xml
+.idea/compiler.xml
+.idea/deploymentTargetSelector.xml
+.idea/deviceManager.xml
+.idea/gradle.xml
+.idea/inspectionProfiles
+.idea/inspectionProfiles/Project_Default.xml
+.idea/migrations.xml
+.idea/misc.xml
+.idea/planningMode.xml
+.idea/runConfigurations.xml
+.idea/vcs.xml
+CHANGELOG.md
+LICENSE
+README.md
+SECURITY.md
+UFM-Windows
+UFM-Windows/.gitignore
+UFM-Windows/README.md
+UFM-Windows/index.html
+UFM-Windows/package-lock.json
+UFM-Windows/package.json
+UFM-Windows/public
+UFM-Windows/public/tauri.svg
+UFM-Windows/public/vite.svg
+UFM-Windows/src
+UFM-Windows/src/App.css
+UFM-Windows/src/App.tsx
+UFM-Windows/src/assets
+UFM-Windows/src/assets/logo.png
+UFM-Windows/src/assets/react.svg
+UFM-Windows/src/components
+UFM-Windows/src/components/DeviceSelector.tsx
+UFM-Windows/src/components/FilePane.tsx
+UFM-Windows/src/components/ProgressBar.tsx
+UFM-Windows/src/components/SideloadZone.tsx
+UFM-Windows/src/hooks
+UFM-Windows/src/hooks/translations.ts
+UFM-Windows/src/hooks/useUfmApi.ts
+UFM-Windows/src/main.tsx
+UFM-Windows/src/vite-env.d.ts
+UFM-Windows/src-tauri
+UFM-Windows/src-tauri/.gitignore
+UFM-Windows/src-tauri/Cargo.lock
+UFM-Windows/src-tauri/Cargo.toml
+UFM-Windows/src-tauri/build.rs
+UFM-Windows/src-tauri/capabilities
+UFM-Windows/src-tauri/capabilities/default.json
+UFM-Windows/src-tauri/icons
+UFM-Windows/src-tauri/icons/128x128.png
+UFM-Windows/src-tauri/icons/128x128@2x.png
+UFM-Windows/src-tauri/icons/32x32.png
+UFM-Windows/src-tauri/icons/64x64.png
+UFM-Windows/src-tauri/icons/Square107x107Logo.png
+UFM-Windows/src-tauri/icons/Square142x142Logo.png
+UFM-Windows/src-tauri/icons/Square150x150Logo.png
+UFM-Windows/src-tauri/icons/Square284x284Logo.png
+UFM-Windows/src-tauri/icons/Square30x30Logo.png
+UFM-Windows/src-tauri/icons/Square310x310Logo.png
+UFM-Windows/src-tauri/icons/Square44x44Logo.png
+UFM-Windows/src-tauri/icons/Square71x71Logo.png
+UFM-Windows/src-tauri/icons/Square89x89Logo.png
+UFM-Windows/src-tauri/icons/StoreLogo.png
+UFM-Windows/src-tauri/icons/android
+UFM-Windows/src-tauri/icons/icon.icns
+UFM-Windows/src-tauri/icons/icon.ico
+UFM-Windows/src-tauri/icons/icon.png
+UFM-Windows/src-tauri/icons/ios
+UFM-Windows/src-tauri/src
+UFM-Windows/src-tauri/src/commands.rs
+UFM-Windows/src-tauri/src/discovery.rs
+UFM-Windows/src-tauri/src/lib.rs
+UFM-Windows/src-tauri/src/main.rs
+UFM-Windows/src-tauri/tauri.conf.json
+UFM-Windows/tsconfig.json
+UFM-Windows/tsconfig.node.json
+UFM-Windows/vite.config.ts
+app
+app/.gitignore
+app/build.gradle.kts
+app/libs
+app/libs/rclone.aar
+app/proguard-rules.pro
+app/src
+app/src/amazon
+app/src/amazon/AndroidManifest.xml
+app/src/amazon/java
+app/src/androidTest
+app/src/androidTest/java
+app/src/foss
+app/src/foss/AndroidManifest.xml
+app/src/foss/java
+app/src/foss/res
+app/src/google
+app/src/google/AndroidManifest.xml
+app/src/google/java
+app/src/main
+app/src/main/AndroidManifest.xml
+app/src/main/assets
+app/src/main/cpp
+app/src/main/java
+app/src/main/jniLibs
+app/src/main/res
+app/src/mobile
+app/src/mobile/AndroidManifest.xml
+app/src/nonfoss
+app/src/nonfoss/java
+app/src/test
+app/src/test/java
+app/src/tv
+app/src/tv/AndroidManifest.xml
+app/src/tv/res
+build.gradle.kts
+docs
+docs/codebase
+docs/codebase/.codebase-scan.txt
+gradle
+gradle/libs.versions.toml
+gradle/wrapper
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+gradle.properties
+gradlew
+gradlew.bat
+settings.gradle.kts
+size.md
+
+=== STACK DETECTION (manifest files) ===
+
+--- build.gradle.kts ---
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.google.gms.google.services) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.ksp) apply false
+    id("app.cash.licensee") version "1.14.1" apply false
+}
+--- gradle.properties ---
+# Project-wide Gradle settings.
+# IDE (e.g. Android Studio) users:
+# Gradle settings configured through the IDE *will override*
+# any settings specified in this file.
+# For more details on how to configure your build environment visit
+# http://www.gradle.org/docs/current/userguide/build_environment.html
+# Specifies the JVM arguments used for the daemon process.
+# The setting is particularly useful for tweaking memory settings.
+org.gradle.jvmargs=-Xmx4096m -XX:MaxMetaspaceSize=1g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -Djava.awt.headless=true
+# When configured, Gradle will run in incubating parallel mode.
+# This option should only be used with decoupled projects. For more details, visit
+# https://developer.android.com/r/tools/gradle-multi-project-decoupled-projects
+# org.gradle.parallel=true
+# AndroidX package structure to make it clearer which packages are bundled with the
+# Android operating system, and which are packaged with your app's APK
+# https://developer.android.com/topic/libraries/support-library/androidx-rn
+android.useAndroidX=true
+# Kotlin code style for this project: "official" or "obsolete":
+kotlin.code.style=official
+# Enables namespacing of each library's R class so that its R class includes only the
+# resources declared in the library itself and none from the library's dependencies,
+# thereby reducing the size of the R class for that library
+android.nonTransitiveRClass=true
+android.builtInKotlin=false
+android.newDsl=false
+ksp.incremental=true
+--- settings.gradle.kts ---
+pluginManagement {
+    repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "com.google.android.gms.oss-licenses-plugin") {
+                useModule("com.google.android.gms:oss-licenses-plugin:${requested.version}")
+            }
+        }
+    }
+}
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+        maven { url = uri("https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1") }
+    }
+}
+
+rootProject.name = "Ultimate File Manager Pro"
+include(":app")
+ 
+
+
+=== ENTRY POINTS ===
+No common entry points found. Check 'main' or 'scripts.start' in manifest files above.
+
+=== LINTING AND FORMATTING CONFIG ===
+No linting or formatting config files found in project root.
+
+=== ENVIRONMENT VARIABLE TEMPLATES ===
+No .env.example or .env.template found. Identify required environment variables by searching the code and config for environment variable reads.
+
+=== TODO / FIXME / HACK (production code only, test dirs excluded) ===
+app/src/main/java/za/kilowatch/ultimatefilemanager/viewer/syntax/LanguageRegistry.kt:316: "check", "assert", "TODO", "run", "let", "apply",
+app/src/main/java/za/kilowatch/ultimatefilemanager/viewer/syntax/LanguageRegistry.kt:1336: "context.Background", "context.TODO",
+app/src/main/cpp/ffmpeg_include/libswresample/swresample.h:144: //TODO use int resample ?
+app/src/main/cpp/ffmpeg_include/libswresample/swresample.h:145: //long term TODO can we enable this dynamically?
+app/src/main/cpp/ffmpeg_include/libavcodec/avcodec.h:2913: //FIXME func typedef
+app/src/main/cpp/ffmpeg_include/libavutil/avutil.h:229: #define FF_QUALITY_SCALE FF_LAMBDA_SCALE //FIXME maybe remove
+app/src/main/cpp/ffmpeg_include/libavutil/opt.h:455: /* TODO those are unused now */
+app/src/main/jniLibs/arm64-v8a/include/libswresample/swresample.h:144: //TODO use int resample ?
+app/src/main/jniLibs/arm64-v8a/include/libswresample/swresample.h:145: //long term TODO can we enable this dynamically?
+app/src/main/jniLibs/arm64-v8a/include/libavcodec/avcodec.h:2913: //FIXME func typedef
+app/src/main/jniLibs/arm64-v8a/include/libavutil/avutil.h:229: #define FF_QUALITY_SCALE FF_LAMBDA_SCALE //FIXME maybe remove
+app/src/main/jniLibs/arm64-v8a/include/libavutil/opt.h:455: /* TODO those are unused now */
+app/src/main/jniLibs/armeabi-v7a/include/libswresample/swresample.h:144: //TODO use int resample ?
+app/src/main/jniLibs/armeabi-v7a/include/libswresample/swresample.h:145: //long term TODO can we enable this dynamically?
+app/src/main/jniLibs/armeabi-v7a/include/libavcodec/avcodec.h:2913: //FIXME func typedef
+app/src/main/jniLibs/armeabi-v7a/include/libavutil/avutil.h:229: #define FF_QUALITY_SCALE FF_LAMBDA_SCALE //FIXME maybe remove
+app/src/main/jniLibs/armeabi-v7a/include/libavutil/opt.h:455: /* TODO those are unused now */
+app/src/foss/java/za/kilowatch/ultimatefilemanager/billing/SupporterLoyaltyActivity.kt:25: * TODO: Replace the placeholder URLs below with your real donation page URLs.
+app/src/foss/java/za/kilowatch/ultimatefilemanager/billing/SupporterLoyaltyActivity.kt:29: // TODO: Replace these with your real donation URLs once set up.
+app/src/google/java/za/kilowatch/ultimatefilemanager/billing/BillingManager.kt:28: // TODO: Replace these with your real Google Play product IDs
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:28: TODO_LIMIT = 60
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:291: """Search for TODO/FIXME/HACK comments."""
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:291: """Search for TODO/FIXME/HACK comments."""
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:291: """Search for TODO/FIXME/HACK comments."""
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:293: patterns = ["TODO", "FIXME", "HACK"]
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:293: patterns = ["TODO", "FIXME", "HACK"]
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:293: patterns = ["TODO", "FIXME", "HACK"]
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:320: return todos[:TODO_LIMIT]
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:617: # TODOs
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:620: print_section("TODO / FIXME / HACK (production code only, test dirs excluded)", todos, output_file)
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:620: print_section("TODO / FIXME / HACK (production code only, test dirs excluded)", todos, output_file)
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:620: print_section("TODO / FIXME / HACK (production code only, test dirs excluded)", todos, output_file)
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:622: print_section("TODO / FIXME / HACK (production code only, test dirs excluded)", ["None found."], output_file)
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:622: print_section("TODO / FIXME / HACK (production code only, test dirs excluded)", ["None found."], output_file)
+.github/skills/acquire-codebase-knowledge/scripts/scan.py:622: print_section("TODO / FIXME / HACK (production code only, test dirs excluded)", ["None found."], output_file)
+
+=== GIT RECENT COMMITS (last 20) ===
+06d3a27 Add acquire-codebase-knowledge skill to .github/skills
+dd04dd3 New Feature Added 09012026-1
+8ed3d79 New Feature Added 01092026
+
+=== HIGH-CHURN FILES (last 90 days, top 20) ===
+   2 CHANGELOG.md
+   2 app/build.gradle.kts
+   2 app/src/foss/java/za/kilowatch/ultimatefilemanager/settings/AboutActivity.kt
+   2 app/src/foss/res/layout/activity_about.xml
+   2 app/src/foss/res/layout/activity_about_tv.xml
+   2 app/src/main/java/za/kilowatch/ultimatefilemanager/network/NetworkBrowserActivity.kt
+   2 app/src/main/java/za/kilowatch/ultimatefilemanager/network/PairingServer.kt
+   2 app/src/main/java/za/kilowatch/ultimatefilemanager/settings/SettingsActivity.kt
+   2 app/src/main/java/za/kilowatch/ultimatefilemanager/settings/SettingsBackupManager.kt
+   2 app/src/main/java/za/kilowatch/ultimatefilemanager/storage/StorageBrowserActivity.kt
+   2 app/src/main/java/za/kilowatch/ultimatefilemanager/ui/DevicePairingActivity.kt
+   2 app/src/main/java/za/kilowatch/ultimatefilemanager/util/DeviceUtils.kt
+   2 app/src/main/java/za/kilowatch/ultimatefilemanager/viewer/DocumentSearchHelper.kt
+   2 app/src/main/java/za/kilowatch/ultimatefilemanager/viewer/PlayerGestureController.kt
+   2 app/src/main/java/za/kilowatch/ultimatefilemanager/viewer/UFMPlaybackService.kt
+   2 app/src/main/java/za/kilowatch/ultimatefilemanager/viewer/UFMPlayerActivity.kt
+   2 app/src/main/res/layout/activity_settings.xml
+   2 app/src/main/res/layout/activity_settings_tv.xml
+   2 app/src/main/res/values-ar/strings.xml
+   2 app/src/main/res/values-de/strings.xml
+
+=== MONOREPO SIGNALS ===
+No monorepo signals detected.
+
+=== CODE METRICS ===
+Total files scanned: 2435
+Total lines of code: 743387
+
+Files by language:
+  Other: 1389
+  Kotlin: 547
+  C Header: 432
+  C: 50
+  TypeScript/React: 6
+  Rust: 5
+  TypeScript: 4
+  Java: 1
+  Python: 1
+
+Top 10 largest files:
+app/libs/rclone.aar: 17947.2KB
+UFM-Windows/src-tauri/icons/icon.icns: 957.2KB
+app/src/main/res/drawable/connection_illustration.png: 929.3KB
+app/src/tv/res/drawable-xxxhdpi/tv_banner.png: 857.8KB
+app/src/main/res/drawable-xxxhdpi/tv_banner.png: 857.8KB
+app/src/main/res/values-hi/strings.xml: 544.7KB
+app/src/tv/res/drawable-xxhdpi/tv_banner.png: 514.4KB
+app/src/main/res/drawable-xxhdpi/tv_banner.png: 514.4KB
+app/src/main/res/.translate_cache/snapshot.json: 513.8KB
+app/src/main/res/values-ru/strings.xml: 478.1KB
+
+=== CI/CD PIPELINES ===
+No CI/CD pipelines detected.
+
+=== CONTAINERS & ORCHESTRATION ===
+No containerization configs detected.
+
+=== SECURITY & COMPLIANCE ===
+Security: SECURITY.md
+
+=== PERFORMANCE & TESTING ===
+No performance testing configs detected.
+
+=== SCAN COMPLETE ===
