@@ -1,71 +1,38 @@
-The following instructions are only to be applied when performing a code review.
+# Ultimate File Manager Pro — Copilot Instructions
 
-## README updates
+## Project Overview
+Ultimate File Manager Pro (UFM) is a dual-pane file manager shipped across three targets from one repository:
 
-- [ ] The new file should be added to the `docs/README.<type>.md`.
+- **Android Mobile / Android TV** — Kotlin app in `app/`, built with Gradle product flavors (`foss`, `google`, `amazon`, `nonfoss` × `mobile`, `tv`).
+- **Windows Companion** — a Tauri 2 desktop app in `UFM-Windows/`, combining a Rust backend (`src-tauri/`) with a React 19 + TypeScript + Vite frontend (`src/`).
 
-## Prompt file guide
+The Windows companion pairs with the Android/TV app over the local network (mDNS discovery, PIN + TLS pairing) for wireless file transfer and remote APK sideloading. The FOSS edition in this repository excludes proprietary cloud SDKs and telemetry.
 
-**Only apply to files that end in `.prompt.md`**
+## Tech Stack
+- **Android**: Kotlin, Gradle (Kotlin DSL), AndroidX/Jetpack, KSP, Google Play Services (non-FOSS flavors only), Firebase (non-FOSS flavors only).
+- **Windows Companion backend**: Rust, Tauri 2 (`src-tauri/`), Cargo.
+- **Windows Companion frontend**: React 19, TypeScript, Vite, `lucide-react`.
+- **Networking**: SMB, SFTP, FTP, WebDAV, S3-compatible storage; local LAN discovery and TLS-pinned pairing between the Windows companion and the Android app.
 
-- [ ] The prompt has markdown front matter.
-- [ ] The prompt has a `agent` field specified of either `agent`, `ask`, or `Plan`.
-- [ ] The prompt has a `description` field.
-- [ ] The `description` field is not empty.
-- [ ] The file name is lower case, with words separated by hyphens.
-- [ ] Encourage the use of `tools`, but it's not required.
-- [ ] Strongly encourage the use of `model` to specify the model that the prompt is optimised for.
-- [ ] Strongly encourage the use of `name` to set the name for the prompt.
+## Conventions
+- **Naming**: Kotlin follows standard Kotlin/Android conventions (`PascalCase` for classes, `camelCase` for functions/properties, `UPPER_SNAKE_CASE` for constants). Rust follows `snake_case` for functions/variables and `PascalCase` for types, per `rustfmt`/`clippy` defaults. TypeScript/React follows `camelCase` for variables/functions and `PascalCase` for components.
+- **Structure**: Keep Android flavor-specific code isolated under the appropriate Gradle source sets rather than branching with runtime flags. Keep Tauri IPC command definitions in `src-tauri/src` colocated with the feature they back, and keep the React frontend organized by feature/screen under `UFM-Windows/src`.
+- **Error handling**: Rust code must propagate errors with `Result<T, E>` (no unhandled `unwrap()`/`expect()` in production paths). Kotlin should use sealed result types or exceptions consistent with existing patterns in the module being touched. React/TypeScript should surface errors to the UI rather than swallowing them silently.
+- **Privacy first**: Never add closed-source SDKs, analytics, or telemetry to the FOSS build paths (`foss` flavor, `UFM-Windows`).
 
-## Instruction file guide
+## Workflow
+- Commit messages should be clear and scoped to one logical change; reference issue numbers where applicable.
+- Open PRs against `main`; keep Android and Windows companion changes in separate PRs unless a change spans both by necessity (e.g. a shared pairing protocol change).
+- This is a strict-standards project: prefer strong typing, comprehensive tests for changed behavior, and request review before merging non-trivial changes.
+- Reference specific instruction files for detailed standards:
+  - Kotlin/Android guidelines: `.github/instructions/kotlin.instructions.md`
+  - Rust/Tauri guidelines: `.github/instructions/rust.instructions.md`
+  - React/TypeScript guidelines: `.github/instructions/react-typescript.instructions.md`
+  - Testing: `.github/instructions/testing.instructions.md`
+  - Security: `.github/instructions/security.instructions.md`
+  - Documentation: `.github/instructions/documentation.instructions.md`
+  - Performance: `.github/instructions/performance.instructions.md`
+  - Code review: `.github/instructions/code-review.instructions.md`
 
-**Only apply to files that end in `.instructions.md`**
-
-- [ ] The instruction has markdown front matter.
-- [ ] The instruction has a `description` field.
-- [ ] The `description` field is not empty.
-- [ ] The file name is lower case, with words separated by hyphens.
-- [ ] The instruction has an `applyTo` field that specifies the file or files to which the instructions apply. If they wish to specify multiple file paths they should formatted like `'**.js, **.ts'`.
-
-## Agent file guide
-
-**Only apply to files that end in `.agent.md`**
-
-- [ ] The agent has markdown front matter.
-- [ ] The agent has a `description` field.
-- [ ] The `description` field is not empty.
-- [ ] The file name is lower case, with words separated by hyphens.
-- [ ] Encourage the use of `tools`, but it's not required.
-- [ ] Strongly encourage the use of `model` to specify the model that the agent is optimised for.
-- [ ] Strongly encourage the use of `name` to set the name for the agent.
-
-## Agent Skills guide
-
-**Only apply to folders in the `skills/` directory**
-
-- [ ] The skill folder contains a `SKILL.md` file.
-- [ ] The SKILL.md has markdown front matter.
-- [ ] The SKILL.md has a `name` field.
-- [ ] The `name` field value is lowercase with words separated by hyphens.
-- [ ] The `name` field matches the folder name.
-- [ ] The SKILL.md has a `description` field.
-- [ ] The `description` field is not empty, at least 10 characters, and maximum 1024 characters.
-- [ ] The `description` field value is wrapped in single quotes.
-- [ ] The folder name is lower case, with words separated by hyphens.
-- [ ] Any bundled assets (scripts, templates, data files) are referenced in the SKILL.md instructions.
-- [ ] Bundled assets are reasonably sized (under 5MB per file).
-
-## Plugin guide
-
-**Only apply to directories in the `plugins/` directory**
-
-- [ ] The plugin directory contains a root `plugin.json` file.
-- [ ] The plugin directory contains a `README.md` file.
-- [ ] The plugin.json has a `name` field matching the directory name.
-- [ ] The plugin.json has a `description` field.
-- [ ] The `description` field is not empty.
-- [ ] The directory name is lower case, with words separated by hyphens.
-- [ ] If `tags` is present, it is an array of lowercase hyphenated strings.
-- [ ] If `items` is present, each item has `path` and `kind` fields.
-- [ ] The `kind` field value is one of: `prompt`, `agent`, `instruction`, `skill`, or `hook`.
-- [ ] The plugin does not reference non-existent files.
+## Meta-tooling note
+This repository's `.github/agents/`, `.github/skills/`, and `.github/workflows/` directories also contain generic Copilot-ecosystem meta-tooling (skill/plugin validation, contribution automation) unrelated to UFM's own build. The project-specific guidance above and the files it references take precedence for anything touching `app/` or `UFM-Windows/`.
